@@ -1,0 +1,72 @@
+.searchCoreSetLayer{
+    position: fixed;   
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background: #0003;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.searchCoreSetBox {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 80vw;
+    min-height: 200px;
+    box-shadow: 0 0 20px #0003;
+    border-radius: 5px;
+    padding: 15px 10px;
+    background: #fff;
+    span{
+        font-size: 13px;
+    }
+    .button{
+        padding: 5px 0;
+        border: 0;
+    }
+   
+    .callButtonBox{
+        display:flex;
+        &>button{
+            flex-grow: 1;
+            margin:0 5px;
+        }
+        .updateButton{
+            background:rgb(0, 119, 255);
+            color:#FFF;
+        }
+        .addButton{
+            color: white;
+            background:green;
+        }
+        .exitButton{
+            color: #fff;
+            background: rgb(255, 99, 99);
+        }
+    }
+    
+    .searchCoreSetElem {
+        height: 25px;
+        display: flex;
+        padding: 3px 10px;
+        margin: 5px 0;
+        .delButton{
+            background: rgb(223, 73, 73);
+            color:white;
+            padding: 3px 5px;
+        }
+        div{
+            flex-grow: 1;
+            display: flex;
+            input {
+                flex-grow: 1;
+                margin:0 5px;
+                border: 0;
+                border-bottom: 1px solid #333333;
+                padding: 1px 2px;
+            }
+        }
+    }
+}

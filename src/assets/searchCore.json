@@ -1,0 +1,6 @@
+{
+    "pcBaidu":"https://www.baidu.com/s?ie=utf-8&tn=baidu&wd=${searchContent}",
+    "moveBaidu":"https://m.baidu.com/s?ie=utf-8&tn=baidu&wd=${searchContent}",
+    "googleWebFlutter":"/src/assets/html/googleSearch.html?q=${searchContent}",
+    "MS-Bing":"https://cn.bing.com/search?q=${searchContent}"
+}
