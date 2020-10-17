@@ -9,26 +9,35 @@
                 v-model="inputSearchData"
                 @keyup.enter="refreshRunSearchCore"
             />
-            <button id="searchButton" @click="refreshRunSearchCore" >search</button>
+            <button id="searchButton" @click="refreshRunSearchCore">
+                search
+            </button>
         </div>
     </div>
-	<div class="useSearchCoreList">
-		<div v-for="(mapValue) in searchCoreMap" :key="mapValue[0]">
-			<label >
-				<span>{{mapValue[0]}}</span>
-				<input v-model="useSearchCoreUseList" type="checkbox" :value="mapValue[0]" />
-			</label>
-		</div>
-		<!-- <div class="openSearchButton">
-			OpenSearch
-		</div> -->
-	</div>
-	<div class="setSearchCoreBox">
-		<ManageSearch/>
-	</div>
+    <div class="toolSide">
+        <div class="useSearchCoreList">
+            <div v-for="mapValue in searchCoreMap" :key="mapValue[0]">
+                <label>
+                    <span>{{ mapValue[0] }}</span>
+                    <input
+                        v-model="useSearchCoreUseList"
+                        type="checkbox"
+                        :value="mapValue[0]"
+                    />
+                </label>
+            </div>
+            <!-- <div class="openSearchButton">
+                OpenSearch
+            </div> -->
+        </div>
+        <div class="setSearchCoreBox">
+            <ManageSearch />
+        </div>
+    </div>
+
     <div class="iframeBox">
         <Iframe
-            v-for="(mapValue) in useSearchCoreMap"
+            v-for="mapValue in useSearchCoreMap"
             :key="mapValue[0]"
             :title="mapValue[0]"
             :IframeSrc="mapValue[1](searchData)"
@@ -36,26 +45,32 @@
     </div>
 </template>
 <script lang="ts">
-
 import "./scss/app.scss";
 import Iframe from "./components/Iframe.vue";
 import ManageSearch from "./components/mangeSearch/ManageSearch.vue";
-import { searchData, inputSearchData, searchCoreMap ,refreshRunSearchCore ,useSearchCoreUseList ,useSearchCoreMap} from "./App";
+import {
+    searchData,
+    inputSearchData,
+    searchCoreMap,
+    refreshRunSearchCore,
+    useSearchCoreUseList,
+    useSearchCoreMap,
+} from "./App";
 
 export default {
     name: "App",
     components: {
-		Iframe,
-		ManageSearch
-	},
+        Iframe,
+        ManageSearch,
+    },
     setup: () => {
-        return { 
+        return {
             inputSearchData,
             searchData,
             searchCoreMap,
-			refreshRunSearchCore,
-			useSearchCoreUseList,
-			useSearchCoreMap
+            refreshRunSearchCore,
+            useSearchCoreUseList,
+            useSearchCoreMap,
         };
     },
     createed: () => {},

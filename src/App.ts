@@ -1,7 +1,8 @@
 import { ref, Ref, computed, watch, reactive } from "vue";
 import searchCoreDef from "./assets/searchCore.json";
-import { createTemplate } from "./template";
-
+import { createTemplate } from "./functions/template";
+import { mapToJson } from "./functions/mapTo";
+import { objectToMap } from "./functions/objectTo";
 //init data
 let inputSearchData = ref("");
 let searchData = ref("Welcome");
@@ -20,6 +21,7 @@ searchCoreMap.value.forEach((v, k) => {
     useSearchCoreUseList.value.push(k);
 });
 //init localStorage data
+
 if (localStorage.getItem("useSearchCoreMap") == undefined) {
     localStorage.setItem(
         "useSearchCoreMap",
@@ -34,6 +36,18 @@ watch(useSearchCoreUseList, () => {
         JSON.stringify(useSearchCoreUseList.value)
     );
 });
+
+(() => {
+    if (localStorage.getItem("searchCoreMap") == undefined) {
+        localStorage.setItem("searchCoreMap", mapToJson(searchCoreMap.value));
+    }
+    searchCoreMap.value = objectToMap(JSON.parse(localStorage.getItem("searchCoreMap")));
+    watch(searchCoreMap, () => {
+        localStorage.setItem("searchCoreMap", mapToJson(searchCoreMap.value));
+    });
+})();
+
+
 //method
 function refreshRunSearchCore() {
     searchData.value = inputSearchData.value;

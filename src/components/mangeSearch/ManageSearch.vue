@@ -1,6 +1,6 @@
 <template>
-    <button class="switchSearchCoreSetBox button" @click="switchShowSetBox">
-        ShowSet
+    <button class="button" @click="switchShowSetBox">
+        SetSearchCore
     </button>
     <div class="searchCoreSetLayer" v-if="showSetBox">
         <div class="searchCoreSetBox">
